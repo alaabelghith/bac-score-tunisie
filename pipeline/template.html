@@ -1,109 +1,151 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>حساب مجموع النقاط · التوجيه الجامعي تونس | Calcul score orientation bac Tunisie</title>
 <meta name="description" content="احسب الصيغة الإجمالية FG ومجموع النقاط T وشوف الشعب الممكنة حسب آخر موجه 2025 — Calcule ton FG et ton score T, compare avec les derniers admis 2025. Gratuit, sans inscription.">
-<meta name="keywords" content="توجيه جامعي, حساب مجموع النقاط, باكالوريا تونس, score orientation, FG, bac Tunisie, orientation universitaire 2026">
+<meta name="keywords" content="توجيه جامعي, حساب مجموع النقاط, باكالوريا تونس, score orientation, FG, bac Tunisie, orientation universitaire">
 <meta property="og:title" content="حساب مجموع النقاط · التوجيه الجامعي — Score orientation bac Tunisie">
-<meta property="og:description" content="Gratuit · sans inscription · tes notes restent sur ton téléphone">
+<meta property="og:description" content="مجاني · بلا تسجيل · Gratuit · sans inscription">
 <meta property="og:type" content="website">
 <style>
 :root{--bg:#f6f7f9;--card:#fff;--line:#e3e6ea;--txt:#16181d;--mute:#6b7280;--acc:#c0392b;--ok:#1e8e4e;--mid:#d4880f;--no:#9aa0a6}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.45 -apple-system,Segoe UI,Roboto,Arial,sans-serif}
-header{background:#1b2a41;color:#fff;padding:18px 16px}header h1{margin:0;font-size:20px}header p{margin:4px 0 0;color:#c9d3e0;font-size:13px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.5 -apple-system,"Segoe UI",Tahoma,Roboto,Arial,sans-serif}
+header{background:#1b2a41;color:#fff;padding:16px}header h1{margin:0;font-size:20px}header p{margin:4px 0 0;color:#c9d3e0;font-size:13px}
+.lang{float:left;background:#fff;color:#1b2a41;border:0;border-radius:16px;padding:6px 12px;font-weight:700;cursor:pointer}
+[dir=ltr] .lang{float:right}
 main{max-width:1000px;margin:0 auto;padding:14px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
 h2{font-size:16px;margin:0 0 10px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
 label{font-size:12px;color:var(--mute);display:block;margin-bottom:3px}
-input,select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;font-size:15px;background:#fff}
+input,select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;font-size:15px;background:#fff;font-family:inherit}
+input[type=number]{direction:ltr;text-align:right}[dir=ltr] input[type=number]{text-align:left}
 .req input{border-color:#9db4d6}
-.fg{display:flex;flex-wrap:wrap;gap:18px;align-items:baseline}.fg b{font-size:28px}
+.fg{display:flex;flex-wrap:wrap;gap:18px;align-items:baseline}.fg b{font-size:28px;direction:ltr;display:inline-block}
 .muted{color:var(--mute);font-size:13px}
+.ltr{direction:ltr;unicode-bidi:isolate}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}.filters input{flex:1;min-width:180px}.filters select{width:auto}
-.pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600;color:#fff}
+.pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600;color:#fff;white-space:nowrap}
 .s-ok{background:var(--ok)}.s-mid{background:var(--mid)}.s-no{background:var(--no)}.s-na{background:#c5cad1;color:#333}
-table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-th{font-size:12px;color:var(--mute);font-weight:600;position:sticky;top:0;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}
+th{font-size:12px;color:var(--mute);font-weight:600;background:#fff}
 td.ar{direction:rtl;text-align:right;font-family:Tahoma,Arial,sans-serif}
-.num{font-variant-numeric:tabular-nums;white-space:nowrap}
-.tabs{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap}.tabs button{border:1px solid var(--line);background:#fff;border-radius:16px;padding:6px 12px;cursor:pointer}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;direction:ltr;unicode-bidi:isolate}
+.tabs{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap}.tabs button{border:1px solid var(--line);background:#fff;border-radius:16px;padding:6px 12px;cursor:pointer;font-family:inherit}
 .tabs button.on{background:#1b2a41;color:#fff}
 .warn{background:#fff7e6;border:1px solid #f3d19c;color:#7a4b00;border-radius:10px;padding:10px 12px;font-size:13px}
+.tag{display:inline-block;background:#eef2f8;color:#1b2a41;border-radius:6px;padding:1px 6px;font-size:12px;margin-top:3px}
 @media(max-width:640px){.hide-m{display:none}}
 </style>
 </head>
 <body>
-<header><h1>حساب مجموع النقاط · Score d'orientation universitaire</h1><p dir="rtl" style="color:#fff;margin:6px 0 2px">احسب الصيغة الإجمالية ومجموع نقاطك وشوف الشعب الممكنة — مجاني، بلا تسجيل</p><p>Bac Tunisie · formules et derniers admis 2025 du guide officiel « دليل التوجيه الجامعي 2026 » · gratuit, rien n'est envoyé</p></header>
+<header><button class="lang" id="lang">Français</button><h1 data-t="title"></h1><p data-t="sub"></p></header>
 <main>
 <div class="card">
-  <h2>1 · Ton bac</h2>
+  <h2 data-t="s1"></h2>
   <div class="grid">
-    <div><label>Section</label><select id="bac"></select></div>
-    <div><label>Gouvernorat d'origine (bonus 7 %)</label><select id="gov"></select></div>
-    <div><label><input type="checkbox" id="ctrl" style="width:auto"> Admis en session de contrôle</label></div>
+    <div><label data-t="section"></label><select id="bac"></select></div>
+    <div><label data-t="govl"></label><select id="gov"></select></div>
+    <div><label><input type="checkbox" id="ctrl" style="width:auto"> <span data-t="ctrl"></span></label></div>
   </div>
 </div>
 <div class="card">
-  <h2>2 · Tes notes</h2>
+  <h2 data-t="s2"></h2>
   <div class="grid" id="grades"></div>
-  <p class="muted" id="ctrlnote" style="display:none">Session de contrôle : entre pour chaque matière la note calculée = (2 × note principale + note contrôle) / 3, comme le prévoit le guide.</p>
+  <p class="muted" id="ctrlnote" style="display:none" data-t="ctrlnote"></p>
 </div>
 <div class="card">
-  <div class="fg"><div><span class="muted">Formule globale FG</span><br><b id="fg">—</b></div><div class="muted" id="fgf"></div></div>
+  <div class="fg"><div><span class="muted" data-t="fgl"></span><br><b id="fg">—</b></div><div class="muted ltr" id="fgf"></div></div>
 </div>
 <div class="card">
-  <h2>3 · Tes filières possibles</h2>
+  <h2 data-t="s3"></h2>
   <div class="tabs" id="tabs"></div>
-  <div class="filters"><input id="q" placeholder="Chercher : licence, institut, ville, code…"><select id="sort"><option value="s">Tri : meilleures filières (seuil ↓)</option><option value="m">Tri : marge</option><option value="c">Tri : code</option></select></div>
+  <div class="filters"><input id="q"><select id="sort"></select></div>
   <div class="muted" id="count"></div>
-  <div style="overflow:auto"><table><thead><tr><th>État</th><th>Ton score T</th><th>Dernier admis 2025</th><th>Licence / établissement</th><th class="hide-m">Formule</th><th class="hide-m">Code</th></tr></thead><tbody id="tb"></tbody></table></div>
+  <div style="overflow:auto"><table><thead><tr><th data-t="h_state"></th><th data-t="h_t"></th><th data-t="h_c"></th><th data-t="h_lic"></th><th class="hide-m" data-t="h_f"></th><th class="hide-m" data-t="h_code"></th></tr></thead><tbody id="tb"></tbody></table></div>
 </div>
-<div class="warn" dir="rtl" style="margin-bottom:8px">أداة غير رسمية: المعطيات مأخوذة آليا من دليل التوجيه الجامعي 2026. ثبّت دائما في الدليل الرسمي وفي orientation.tn قبل ما تعمّر بطاقة الاختيارات.</div>
-<div class="warn">Outil non officiel. Les données ont été lues automatiquement dans le guide 2026 (pages-images) : vérifie toujours le code et le seuil dans le guide officiel (numéro de page indiqué) et sur orientation.tn avant de remplir ta fiche. Le seuil 2025 ne garantit pas le seuil 2026.</div>
-<p class="muted" style="text-align:center;margin:18px 0 30px">Données : guide 2026 (derniers admis 2025) · prochaine mise à jour : guide 2027 (juillet 2027)<br>Fait par <a href="https://alaabelghith.github.io" target="_blank">Alaa Belghith</a> · <a href="https://github.com/alaabelghith/bac-score-tunisie" target="_blank">code source</a> · gratuit et libre</p>
+<div class="warn" data-t="warn"></div>
+<p class="muted" style="text-align:center;margin:18px 0 30px"><span data-t="foot"></span><br><span data-t="by"></span> <a href="https://alaabelghith.github.io" target="_blank">Alaa Belghith</a> · <a href="https://github.com/alaabelghith/bac-score-tunisie" target="_blank" data-t="src"></a></p>
 </main>
 <script>
 const DATA = /*DATA*/[];
+const L = {
+ ar:{title:"حساب مجموع النقاط · التوجيه الجامعي",sub:"احسب الصيغة الإجمالية ومجموع نقاطك وشوف الشعب الممكنة حسب آخر موجه 2025 — مجاني، بلا تسجيل، أعدادك تقعد عندك",
+  s1:"1 · الباكالوريا متاعك",section:"نوع الباكالوريا",govl:"الولاية الأصلية (التنفيل الجغرافي 7%)",ctrl:"ناجح في دورة المراقبة",
+  s2:"2 · أعدادك",ctrlnote:"دورة المراقبة: دخّل لكل مادة العدد المحسوب = (2 × عدد الدورة الرئيسية + عدد دورة المراقبة) / 3، كيف ما يقول الدليل.",
+  fgl:"الصيغة الإجمالية FG",s3:"3 · الشعب اللي تنجم تتوجّهلها",q:"لوّج: شعبة، مؤسسة، ولاية، رمز…",
+  sort_s:"الترتيب: أحسن الشعب (المجموع ↓)",sort_m:"الترتيب: الفارق",sort_c:"الترتيب: الرمز",
+  h_state:"الحالة",h_t:"مجموعك T",h_c:"آخر موجه 2025",h_lic:"الشعبة / المؤسسة",h_f:"الصيغة",h_code:"الرمز",
+  all:"الكل",ok:"مضمونة",mid:"على الحافة",no:"صعيبة",nd:"بلا مجموع 2025",na:"أعداد ناقصة",
+  n:"شعبة",miss:"ناقص",page:"ص.",guide:"في الدليل",seats:"عدد البقاع",special:"تكوين خاص / بالخارج",
+  warn:"أداة غير رسمية: المعطيات مأخوذة من دليل التوجيه الجامعي 2026 (آخر موجه 2025). ثبّت ديما في الدليل الرسمي (رقم الصفحة مكتوب) وفي orientation.tn قبل ما تعمّر بطاقة الاختيارات. مجموع 2025 ما يضمنش مجموع 2026.",
+  foot:"المعطيات: دليل 2026 · التحيين الجاي: دليل 2027 (جويلية 2027)",by:"من إنجاز",src:"الكود المصدري",lang:"Français"},
+ fr:{title:"Score d'orientation universitaire · Bac Tunisie",sub:"Calcule ton FG et ton score T, compare avec les derniers admis 2025 — gratuit, sans inscription, tes notes restent sur ton téléphone",
+  s1:"1 · Ton bac",section:"Section",govl:"Gouvernorat d'origine (bonus 7 %)",ctrl:"Admis en session de contrôle",
+  s2:"2 · Tes notes",ctrlnote:"Session de contrôle : entre pour chaque matière la note calculée = (2 × note principale + note contrôle) / 3, comme le prévoit le guide.",
+  fgl:"Formule globale FG",s3:"3 · Tes filières possibles",q:"Chercher : licence, institut, ville, code…",
+  sort_s:"Tri : meilleures filières (seuil ↓)",sort_m:"Tri : marge",sort_c:"Tri : code",
+  h_state:"État",h_t:"Ton score T",h_c:"Dernier admis 2025",h_lic:"Licence / établissement",h_f:"Formule",h_code:"Code",
+  all:"Tout",ok:"Sûr",mid:"Limite",no:"Hors de portée",nd:"Pas de seuil 2025",na:"Notes manquantes",
+  n:"filières",miss:"manque",page:"p.",guide:"du guide",seats:"places",special:"Formation spéciale / à l'étranger",
+  warn:"Outil non officiel. Données du guide d'orientation 2026 (derniers admis 2025) : vérifie toujours le code et le seuil dans le guide officiel (page indiquée) et sur orientation.tn avant de remplir ta fiche. Le seuil 2025 ne garantit pas le seuil 2026.",
+  foot:"Données : guide 2026 · prochaine mise à jour : guide 2027 (juillet 2027)",by:"Fait par",src:"code source",lang:"عربي"}};
 const BACS = {
- let:{n:"Lettres · آداب", fg:"4*MG+1.5*AR+1.5*PH+1*HG+1*F+1*ANG"},
- math:{n:"Mathématiques · رياضيات", fg:"4*MG+2*M+1.5*SP+0.5*SVT+1*F+1*ANG"},
- sci:{n:"Sciences expérimentales · علوم تجريبية", fg:"4*MG+1*M+1.5*SP+1.5*SVT+1*F+1*ANG"},
- eco:{n:"Économie et gestion · اقتصاد وتصرف", fg:"4*MG+1.5*ECO+1.5*GEST+0.5*M+0.5*HG+1*F+1*ANG"},
- tech:{n:"Sciences techniques · العلوم التقنية", fg:"4*MG+1.5*TE+1.5*M+1*SP+1*F+1*ANG"},
- info:{n:"Sciences de l'informatique · علوم الإعلامية", fg:"4*MG+1.5*M+1.5*ALGO+0.5*SP+0.5*STI+1*F+1*ANG"},
- sport:{n:"Sport · رياضة", fg:"4*MG+1.5*SB+1*SPT+0.5*EP+0.5*SP+0.5*PH+1*F+1*ANG"}
+ let:{ar:"آداب",fr:"Lettres", fg:"4*MG+1.5*AR+1.5*PH+1*HG+1*F+1*ANG"},
+ math:{ar:"رياضيات",fr:"Mathématiques", fg:"4*MG+2*M+1.5*SP+0.5*SVT+1*F+1*ANG"},
+ sci:{ar:"علوم تجريبية",fr:"Sciences expérimentales", fg:"4*MG+1*M+1.5*SP+1.5*SVT+1*F+1*ANG"},
+ eco:{ar:"اقتصاد وتصرف",fr:"Économie et gestion", fg:"4*MG+1.5*ECO+1.5*GEST+0.5*M+0.5*HG+1*F+1*ANG"},
+ tech:{ar:"العلوم التقنية",fr:"Sciences techniques", fg:"4*MG+1.5*TE+1.5*M+1*SP+1*F+1*ANG"},
+ info:{ar:"علوم الإعلامية",fr:"Sciences de l'informatique", fg:"4*MG+1.5*M+1.5*ALGO+0.5*SP+0.5*STI+1*F+1*ANG"},
+ sport:{ar:"رياضة",fr:"Sport", fg:"4*MG+1.5*SB+1*SPT+0.5*EP+0.5*SP+0.5*PH+1*F+1*ANG"}
 };
-const SUBJ = {MG:"Moyenne du bac (MG)",M:"Maths",SP:"Physique-chimie",SVT:"SVT",F:"Français",ANG:"Anglais",AR:"Arabe",PH:"Philosophie",HG:"Histoire-géo",
- ECO:"Économie",GEST:"Gestion",TE:"Technologie",ALGO:"Algorithmique",STI:"STI",INFO:"Informatique",SB:"Sciences biologiques",SPT:"Spécialité sport",EP:"Éducation physique",
- IT:"Italien (option)",ALL:"Allemand (option)",ESP:"Espagnol (option)"};
-const GOVS=["Tunis","Ariana","Ben Arous","Manouba","Nabeul","Zaghouan","Bizerte","Béja","Jendouba","Le Kef","Siliana","Sousse","Monastir","Mahdia","Sfax","Kairouan","Kasserine","Sidi Bouzid","Gabès","Médenine","Tataouine","Gafsa","Tozeur","Kébili"];
+const SUBJ = {MG:["المعدل العام للباكالوريا","Moyenne du bac"],M:["رياضيات","Maths"],SP:["علوم فيزيائية","Physique-chimie"],SVT:["علوم الحياة والأرض","SVT"],
+ F:["فرنسية","Français"],ANG:["إنقليزية","Anglais"],AR:["عربية","Arabe"],PH:["فلسفة","Philosophie"],HG:["تاريخ وجغرافيا","Histoire-géo"],
+ ECO:["اقتصاد","Économie"],GEST:["تصرف","Gestion"],TE:["تكنولوجيا","Technologie"],ALGO:["الخوارزميات والبرمجة","Algorithmique"],STI:["أنظمة وتكنولوجيات المعلوماتية","STI"],
+ INFO:["إعلامية","Informatique"],SB:["العلوم البيولوجية","Sciences biologiques"],SPT:["اختصاص رياضي","Spécialité sport"],EP:["تربية بدنية","Éducation physique"],
+ IT:["إيطالية (اختيارية)","Italien (option)"],ALL:["ألمانية (اختيارية)","Allemand (option)"],ESP:["إسبانية (اختيارية)","Espagnol (option)"]};
+const GOVS=[["Tunis","تونس"],["Ariana","أريانة"],["Ben Arous","بن عروس"],["Manouba","منوبة"],["Nabeul","نابل"],["Zaghouan","زغوان"],["Bizerte","بنزرت"],["Béja","باجة"],
+ ["Jendouba","جندوبة"],["Le Kef","الكاف"],["Siliana","سليانة"],["Sousse","سوسة"],["Monastir","المنستير"],["Mahdia","المهدية"],["Sfax","صفاقس"],["Kairouan","القيروان"],
+ ["Kasserine","القصرين"],["Sidi Bouzid","سيدي بوزيد"],["Gabès","قابس"],["Médenine","مدنين"],["Tataouine","تطاوين"],["Gafsa","قفصة"],["Tozeur","توزر"],["Kébili","قبلي"]];
+const GOVAR=Object.fromEntries(GOVS);
 const $=id=>document.getElementById(id);
 const SKM={"ب":"ٮ","ت":"ٮ","ث":"ٮ","ن":"ٮ","ي":"ٮ","ى":"ٮ","ئ":"ٮ","ج":"ح","خ":"ح","ذ":"د","ز":"ر","ش":"س","ض":"ص","ظ":"ط","غ":"ع","ف":"ٯ","ق":"ٯ","ة":"ه","أ":"ا","إ":"ا","آ":"ا","ؤ":"و","ء":""};
-const fold=s=>(s||"").toLowerCase().replace(/[\u064B-\u0652ـ]/g,"").replace(/./g,c=>SKM[c]??c);
+const fold=s=>(s||"").toLowerCase().replace(/[ً-ْـ]/g,"").replace(/./g,c=>SKM[c]??c);
 const store={get(k){try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-let G=store.get("grades")||{}, tab="all";
+let G=store.get("grades")||{}, tab="all", lang=store.get("lang")||"ar";
+const t=k=>L[lang][k];
 const vars=f=>[...new Set((f.match(/[A-Z]+/g)||[]).filter(v=>v!=="FG"&&v!=="MAX"))];
 function evalF(f, env){
   const need=vars(f).filter(v=>env[v]==null||isNaN(env[v])); if(need.length) return {need};
   const js=f.replace(/MAX/g,"Math.max").replace(/[A-Z]+/g,v=>v==="Math"?v:"env."+v).replace(/env\.Math/g,"Math");
   try{ return {v: Function("env","return "+js)(env)} }catch(e){ return {need:["?"]} }
 }
+function applyLang(){
+  document.documentElement.lang=lang; document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+  document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t(e.dataset.t));
+  $("lang").textContent=t("lang"); $("q").placeholder=t("q");
+  const sv=$("sort").value||"s";
+  $("sort").innerHTML=["s","m","c"].map(v=>`<option value="${v}">${t("sort_"+v)}</option>`).join(""); $("sort").value=sv;
+  const b=$("bac").value||(store.get("ctx")||{}).bac, g=$("gov").value||(store.get("ctx")||{}).gov;
+  $("bac").innerHTML=Object.entries(BACS).map(([k,x])=>`<option value="${k}">${lang==="ar"?x.ar+" · "+x.fr:x.fr+" · "+x.ar}</option>`).join("");
+  $("gov").innerHTML='<option value="">—</option>'+GOVS.map(([fr,ar])=>`<option value="${fr}">${lang==="ar"?ar:fr}</option>`).join("");
+  if(b)$("bac").value=b; if(g)$("gov").value=g;
+  build();
+}
 function init(){
-  $("bac").innerHTML=Object.entries(BACS).map(([k,b])=>`<option value="${k}">${b.n}</option>`).join("");
-  $("gov").innerHTML='<option value="">—</option>'+GOVS.map(g=>`<option>${g}</option>`).join("");
-  const s=store.get("ctx")||{}; if(s.bac)$("bac").value=s.bac; if(s.gov)$("gov").value=s.gov;
+  $("lang").onclick=()=>{lang=lang==="ar"?"fr":"ar";store.set("lang",lang);applyLang();};
   ["bac","gov"].forEach(id=>$(id).onchange=()=>{store.set("ctx",{bac:$("bac").value,gov:$("gov").value});build();});
   $("ctrl").onchange=()=>{$("ctrlnote").style.display=$("ctrl").checked?"block":"none"};
-  $("q").oninput=render; $("sort").onchange=render; build();
+  $("q").oninput=render; $("sort").onchange=render; applyLang();
 }
 function build(){
   const bac=$("bac").value, fgv=vars(BACS[bac].fg);
   const extra=new Set(); DATA.forEach(p=>p.rows.forEach(r=>{if(r[0]===bac) vars(r[1]).forEach(v=>extra.add(v))}));
   const all=["MG",...fgv.filter(v=>v!=="MG"),...[...extra].filter(v=>!fgv.includes(v)&&v!=="MG")];
-  $("grades").innerHTML=all.map(v=>`<div class="${fgv.includes(v)?"req":""}"><label>${SUBJ[v]||v} <span class="muted">(${v})</span></label><input type="number" step="0.01" min="0" max="20" inputmode="decimal" data-v="${v}" value="${G[v]??""}"></div>`).join("");
+  const li=lang==="ar"?0:1;
+  $("grades").innerHTML=all.map(v=>`<div class="${fgv.includes(v)?"req":""}"><label>${SUBJ[v]?SUBJ[v][li]:v} <span class="muted ltr">(${v})</span></label><input type="number" step="0.01" min="0" max="20" inputmode="decimal" data-v="${v}" value="${G[v]??""}"></div>`).join("");
   $("grades").querySelectorAll("input").forEach(i=>i.oninput=()=>{G[i.dataset.v]=i.value===""?null:parseFloat(i.value);store.set("grades",G);render();});
   $("fgf").textContent="FG = "+BACS[bac].fg.replace(/\*/g,"·"); render();
 }
@@ -114,28 +156,27 @@ function render(){
   const out=[];
   DATA.forEach(p=>p.rows.forEach(r=>{
     if(r[0]!==bac) return;
-    let T=null, need=[];
-    if(fg.v!=null){ const e=evalF(r[1],{...env,FG:fg.v}); if(e.v!=null){T=e.v; if(gov&&p.gov===gov&&!p.prep) T*=1.07;} else need=e.need; }
-    else need=vars(BACS[bac].fg).filter(v=>env[v]==null);
+    const usesFG=/FG/.test(r[1]); let T=null, need=[];
+    if(usesFG && fg.v==null) need=vars(BACS[bac].fg).filter(v=>env[v]==null);
+    else { const e=evalF(r[1],{...env,FG:fg.v}); if(e.v!=null){T=e.v; if(gov&&p.gov===gov&&!p.prep) T*=1.07;} else need=e.need; }
     const c=r[2], m=(T!=null&&c!=null)?T-c:null;
     const st= T==null?"na": c==null?"nd": m>=5?"ok": m>=-5?"mid":"no";
-    out.push({p,f:r[1],c,T,m,st,need,bonus:gov&&p.gov===gov&&!p.prep});
+    out.push({p,f:r[1],c,T,m,st,need,seats:r[3],bonus:gov&&p.gov===gov&&!p.prep});
   }));
-  const counts={all:out.length,ok:0,mid:0,no:0,nd:0,na:0}; out.forEach(o=>counts[o.st]!==undefined&&counts[o.st]++);
-  const names={all:"Tout",ok:"Sûr",mid:"Limite",no:"Hors de portée",nd:"Pas de seuil 2025",na:"Notes manquantes"};
-  $("tabs").innerHTML=Object.keys(names).map(k=>`<button class="${tab===k?"on":""}" data-t="${k}">${names[k]} (${counts[k]||0})</button>`).join("");
-  $("tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{tab=b.dataset.t;render()});
-  const q=$("q").value.trim().toLowerCase();
-  let rows=out.filter(o=>(tab==="all"||o.st===tab)&&(!q||fold(q).split(/\s+/).every(w=>fold(o.p.code+" "+o.p.licence+" "+o.p.inst+" "+(o.p.gov||"")+" "+o.f).includes(w))));
+  const counts={all:out.length,ok:0,mid:0,no:0,nd:0,na:0}; out.forEach(o=>counts[o.st]++);
+  $("tabs").innerHTML=["all","ok","mid","no","nd","na"].map(k=>`<button class="${tab===k?"on":""}" data-t2="${k}">${t(k)} (${counts[k]||0})</button>`).join("");
+  $("tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{tab=b.dataset.t2;render()});
+  const q=$("q").value.trim();
+  let rows=out.filter(o=>(tab==="all"||o.st===tab)&&(!q||fold(q).split(/\s+/).every(w=>fold(o.p.code+" "+o.p.licence+" "+o.p.inst+" "+(o.p.gov||"")+" "+(GOVAR[o.p.gov]||"")+" "+o.f).includes(w))));
   const sv=$("sort").value;
   rows.sort(sv==="c"?(a,b)=>a.p.code.localeCompare(b.p.code): sv==="m"?(a,b)=>(b.m??-999)-(a.m??-999): (a,b)=>(b.c??-1)-(a.c??-1));
-  $("count").textContent=rows.length+" filières";
-  const pill={ok:'<span class="pill s-ok">Sûr</span>',mid:'<span class="pill s-mid">Limite</span>',no:'<span class="pill s-no">Hors</span>',nd:'<span class="pill s-na">Pas de seuil</span>',na:'<span class="pill s-na">Notes ?</span>'};
-  $("tb").innerHTML=rows.slice(0,400).map(o=>`<tr><td>${pill[o.st]}</td>
-   <td class="num">${o.T!=null?o.T.toFixed(2)+(o.bonus?' <span class="muted">(+7%)</span>':''):'<span class="muted">manque '+o.need.join(", ")+'</span>'}</td>
-   <td class="num">${o.c!=null?o.c.toFixed(2):"—"}${o.m!=null?'<br><span class="muted">'+(o.m>=0?"+":"")+o.m.toFixed(2)+'</span>':''}</td>
-   <td class="ar"><b>${o.p.licence}</b><br>${o.p.inst}<br><span class="muted">${o.p.gov||""} · p. ${o.p.page-2} du guide</span></td>
-   <td class="hide-m num">${o.f}</td><td class="hide-m num">${o.p.code}</td></tr>`).join("");
+  $("count").textContent=rows.length+" "+t("n");
+  const pill=s=>`<span class="pill ${{ok:"s-ok",mid:"s-mid",no:"s-no"}[s]||"s-na"}">${t(s)}</span>`;
+  $("tb").innerHTML=rows.slice(0,400).map(o=>`<tr><td>${pill(o.st)}</td>
+   <td class="num">${o.T!=null?o.T.toFixed(2)+(o.bonus?' <span class="muted">(+7%)</span>':''):'<span class="muted">'+t("miss")+' '+o.need.join(", ")+'</span>'}</td>
+   <td class="num">${o.c!=null?o.c.toFixed(2):"—"}${o.m!=null?'<br><span class="muted">'+(o.m>=0?"+":"")+o.m.toFixed(2)+'</span>':''}${o.seats?'<br><span class="muted">'+o.seats+' '+t("seats")+'</span>':''}</td>
+   <td class="ar"><b>${o.p.licence}</b><br>${o.p.inst}${o.p.special?'<br><span class="tag">'+t("special")+'</span>':''}<br><span class="muted">${(lang==="ar"?GOVAR[o.p.gov]:o.p.gov)||""} · ${t("page")} ${o.p.page-2} ${t("guide")}</span></td>
+   <td class="hide-m num">${o.f.replace(/\*/g,"·")}</td><td class="hide-m num">${o.p.code}</td></tr>`).join("");
 }
 init();
 </script>
