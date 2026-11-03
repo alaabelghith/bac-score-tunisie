@@ -57,7 +57,7 @@ td.ar{direction:rtl;text-align:right;font-family:Tahoma,Arial,sans-serif}
 <div class="card">
   <h2>3 · Tes filières possibles</h2>
   <div class="tabs" id="tabs"></div>
-  <div class="filters"><input id="q" placeholder="Chercher : licence, institut, ville, code…"><select id="sort"><option value="m">Tri : marge</option><option value="c">Tri : code</option></select></div>
+  <div class="filters"><input id="q" placeholder="Chercher : licence, institut, ville, code…"><select id="sort"><option value="s">Tri : meilleures filières (seuil ↓)</option><option value="m">Tri : marge</option><option value="c">Tri : code</option></select></div>
   <div class="muted" id="count"></div>
   <div style="overflow:auto"><table><thead><tr><th>État</th><th>Ton score T</th><th>Dernier admis 2025</th><th>Licence / établissement</th><th class="hide-m">Formule</th><th class="hide-m">Code</th></tr></thead><tbody id="tb"></tbody></table></div>
 </div>
@@ -127,7 +127,8 @@ function render(){
   $("tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{tab=b.dataset.t;render()});
   const q=$("q").value.trim().toLowerCase();
   let rows=out.filter(o=>(tab==="all"||o.st===tab)&&(!q||fold(q).split(/\s+/).every(w=>fold(o.p.code+" "+o.p.licence+" "+o.p.inst+" "+(o.p.gov||"")+" "+o.f).includes(w))));
-  rows.sort($("sort").value==="c"?(a,b)=>a.p.code.localeCompare(b.p.code):(a,b)=>(b.m??-999)-(a.m??-999));
+  const sv=$("sort").value;
+  rows.sort(sv==="c"?(a,b)=>a.p.code.localeCompare(b.p.code): sv==="m"?(a,b)=>(b.m??-999)-(a.m??-999): (a,b)=>(b.c??-1)-(a.c??-1));
   $("count").textContent=rows.length+" filières";
   const pill={ok:'<span class="pill s-ok">Sûr</span>',mid:'<span class="pill s-mid">Limite</span>',no:'<span class="pill s-no">Hors</span>',nd:'<span class="pill s-na">Pas de seuil</span>',na:'<span class="pill s-na">Notes ?</span>'};
   $("tb").innerHTML=rows.slice(0,400).map(o=>`<tr><td>${pill[o.st]}</td>
