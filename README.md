@@ -17,7 +17,9 @@ Free, unofficial calculator for Tunisian baccalauréat students: enter your grad
 - Rules (guide p.16, p.19): FG per section; T = programme formula (M = maths grade, MG = bac average); bonus T × 1.07 only for programmes in the home governorate (not prépas); session de contrôle grade = (2 × main + control) / 3.
 - Checked against the guide's worked examples (FG 94.405 · FG 104.055 · T 123.17 with bonus).
 
-Known limits: some institution names still have OCR errors; 71 programmes have no governorate detected (bonus not applied); special programmes (IPEST, France, Germany) not included.
+- Institution names: official names from the 2024 guide (text PDF) matched by programme code; new 2026 codes checked by hand against the 2026 guide images. Licence names: read per block, matched to the official list, the rest checked by hand.
+
+Known limits: special programmes (IPEST, France, Germany) not included.
 
 ## Update each year
 `pipeline/`: `pdfimages -png guide.pdf img/x -p` → `ocr_v2.py` (grid detection + Tesseract ara/eng) → `vote.py` (2nd pass on cut-offs) → `clean.py` (names, governorates) → build `index.html` from `template.html` + `data.json`.
